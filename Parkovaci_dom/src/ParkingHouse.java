@@ -17,11 +17,13 @@ public class ParkingHouse {
 
 	public int unparkCar(String car) {
 		for (int i = 0; i < 4; i++) {
-			if (place[i] == car) {
-				System.out.println("The " + car + " is being unparked from the box nember " + i + ".");
-				place[i] = null;
-				return i;
-			}
+			//if (place[i] != null) {
+				if (car.equals(place[i])) {
+					System.out.println("The " + car + " is being unparked from the box number " + i + ".");
+					place[i] = null;
+					return i;
+				}
+			//}
 		}
 		System.out.println("There is no " + car + " in the Parking house");
 		return -1;
