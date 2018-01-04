@@ -8,6 +8,7 @@ public class App {
 		 */
 
 		ParkingHouse parkHouse1 = new ParkingHouse();
+		Window window = new Window(parkHouse1);
 
 		Scanner sc = new Scanner(System.in);
 		String command;
@@ -42,6 +43,8 @@ public class App {
 			if (command.equals("getFreeBox")) {
 				parkHouse1.getFreeBox();
 			}
+			
+			window.repaintCanvas();
 
 		} while (!command.equals("exit"));
 

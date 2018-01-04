@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class ParkingHouse {
 	private String[] place = new String[4];
@@ -17,7 +18,7 @@ public class ParkingHouse {
 
 	public int unparkCar(String car) {
 		for (int i = 0; i < 4; i++) {
-			if (place[i] == car) {
+			if (car.equals(place[i])) {
 				System.out.println("The " + car + " is being unparked from the box nember " + i + ".");
 				place[i] = null;
 				return i;
@@ -40,7 +41,7 @@ public class ParkingHouse {
 
 	}
 
-	public void getCountOfFreeBoxes() {
+	public int getCountOfFreeBoxes() {
 
 		int s = 0;
 
@@ -51,7 +52,8 @@ public class ParkingHouse {
 			}
 		}
 		System.out.println("There are " + s + " free spaces in the Parking house.");
-
+		
+		return s;
 	}
 
 	public int getFreeBox() {
@@ -65,6 +67,13 @@ public class ParkingHouse {
 		System.out.println("There is no free space in the Parking house");
 		return -1;
 
+	}
+	
+	public String[] getPlaces() {
+		String[] returnPlaces = new String[4];
+		System.arraycopy(this.place, 0, returnPlaces, 0, this.place.length);
+		
+		return returnPlaces;
 	}
 
 }
