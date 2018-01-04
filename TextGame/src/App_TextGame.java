@@ -25,10 +25,8 @@ public class App_TextGame {
 			}
 		}
 
-		// do {
 
 		String swedrftgyh = TextResources.room1description;
-		// }
 
 	}
 }
