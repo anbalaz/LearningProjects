@@ -53,7 +53,7 @@ public class ParkingHouse {
 				s++;
 			}
 		}
-		System.out.println("There are " + s + " free spaces in the Parking house.");
+		//System.out.println("There are " + s + " free spaces in the Parking house.");
 		
 		return s;
 	}

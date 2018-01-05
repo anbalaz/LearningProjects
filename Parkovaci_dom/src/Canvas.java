@@ -72,7 +72,7 @@ public class Canvas extends JPanel {
 	
 	private void drawCar(Graphics g, int posX, int posY, int offsetBoxX, int offsetBoxY) {
 		try {
-			BufferedImage image = ImageIO.read(new File("/home/krtek/Documents/devel/java/ParkingHouse/src/car.png"));
+			BufferedImage image = ImageIO.read(new File("src/car.png"));
 			int carWidth = this.boxWidth - (2 * offsetBoxX);
 			int carHeight = this.boxHeight - (2 * offsetBoxY);
 			
