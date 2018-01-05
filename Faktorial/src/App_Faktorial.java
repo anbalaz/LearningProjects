@@ -19,10 +19,11 @@ public class App_Faktorial {
 		
 		}while(numb!=0);*/
 		
+		System.out.println("Write any number");
 		numb=sc.nextInt();
-		int f= function1.FunctionModulo(numb);
-		System.out.println(f);
 		
+		int f= function1.FunctionModulo1(numb);
+		function1.FunctionModulo2(numb);
 	}
 
 }
