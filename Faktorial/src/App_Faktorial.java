@@ -5,19 +5,23 @@ public class App_Faktorial {
 		
 		Function function1= new Function();
 		Scanner sc= new Scanner(System.in);
-		int faktNumb;
+		int numb;
 		
-		do {
+		
+	/*	do {
 		System.out.println("Write number from 1-19 and I'll tell you it's faktorial!");
 		
-		faktNumb=sc.nextInt();
+		numb=sc.nextInt();
 		
-		int f= function1.FunctionFactorial(faktNumb);
+		int f= function1.FunctionFactorial(numb);
 		
 		System.out.println(f);
 		
-		}while(faktNumb!=0);
+		}while(numb!=0);*/
 		
+		numb=sc.nextInt();
+		int f= function1.FunctionModulo(numb);
+		System.out.println(f);
 		
 	}
 

@@ -8,5 +8,18 @@ public class Function {
 		}
 		return f;
 	}
+	
+	public int FunctionModulo(int i) {
+		int f=0;
+		
+		for (int e=0;e<=i;e++) {
+			if((e% 3)==0){
+				if((e% 6)==0) {
+					System.out.println(e);
+				}
+			}
+		}
+		return f;
+	}
 
 }
