@@ -10,19 +10,19 @@ public class App_Faktorial {
 		Scanner sc = new Scanner(System.in);
 		int numb;
 
-		String command = texts.Function;
+		
 		String answer;
 
 		do {
 
-			System.out.println(command);
+			System.out.println(texts.Function);
 
 			answer = sc.nextLine();
 
 			if (answer.equals("faktorial")) {
 
 				do {
-					System.out.println("Write number from 1-19 and I'll tell you it's faktorial!");
+					System.out.println(texts.Faktorial);
 
 					numb = sc.nextInt();
 
@@ -35,7 +35,7 @@ public class App_Faktorial {
 
 			if (answer.equals("modulo1")) {
 				do {
-					System.out.println("Write any number");
+					System.out.println(texts.Modulo1);
 					numb = sc.nextInt();
 					int b = function1.FunctionModulo1(numb);
 				} while (numb != -1);
@@ -44,7 +44,7 @@ public class App_Faktorial {
 
 			if (answer.equals("modulo2")) {
 				do {
-					System.out.println("Write any number");
+					System.out.println(texts.Modulo2);
 					numb = sc.nextInt();
 					function1.FunctionModulo2(numb);
 				} while (numb != -1);
