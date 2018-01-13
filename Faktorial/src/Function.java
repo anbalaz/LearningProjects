@@ -29,10 +29,12 @@ public class Function {
 		for (int e = 1; e <= i; e++) {
 			if ((e % 6) == 0) {
 				if ((e % 3) == 0) {
-					System.out.println(e);
+					System.out.print(e + ", ");
 				}
+				
 			}
 		}
+		System.out.println();
 
 	}
 

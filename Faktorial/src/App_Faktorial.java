@@ -18,7 +18,7 @@ public class App_Faktorial {
 			System.out.println(texts.Function);
 
 			answer = sc.nextLine();
-
+			
 			if (answer.equals("faktorial")) {
 
 				do {
@@ -48,8 +48,10 @@ public class App_Faktorial {
 					numb = sc.nextInt();
 					function1.FunctionModulo2(numb);
 				} while (numb != -1);
+				
 
 			}
+			sc.nextLine();
 
 		} while (!answer.equals("exit"));
 	}
