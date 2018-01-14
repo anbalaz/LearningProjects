@@ -5,45 +5,93 @@ public class App_TextGame {
 
 		boolean commandHandled = false;
 		Scanner sc = new Scanner(System.in);
-		String command = TextResources.room1description;
-		String FirstRoomDescription= TextResources.room1description;
 
-		
-		System.out.println(FirstRoomDescription);
-		
-		while(!commandHandled) {
-			command= sc.nextLine();
-			if (command.equals("y")){
-				System.out.println("You're in the room with two doors which door do you enter left or right?");
-				commandHandled = true;
+		String command;
+		String room1Intro = TextResources.room1intro;
+		String room1Description = TextResources.room1Description;
+		String deathByStarve = TextResources.deathByStarving;
+		String survive = TextResources.winnnig;
+		String deathByWrongDoor = TextResources.loose;
+
+		System.out.println(room1Intro);
+
+		while (!commandHandled) {
+
+			command = sc.nextLine();
+
+			if (command.equals("y")) {
+
+				System.out.println(room1Description);
+
+				while (!commandHandled) {
+
+					command = sc.nextLine();
+
+					if (command.equals("left")) {
+						System.out.println(room1Description);
+
+						while (!commandHandled) {
+
+							command = sc.nextLine();
+
+							if (command.equals("left")) {
+								System.out.println(survive);
+								System.exit(0);
+
+							}
+							if (command.equals("right")) {
+								System.out.println(deathByWrongDoor);
+								System.exit(0);
+
+							}
+							if (command.equals("stay")) {
+								System.out.println(deathByStarve);
+								System.exit(0);
+							}
+						}
+
+					}
+					if (command.equals("right")) {
+						System.out.println(room1Description);
+
+						while (!commandHandled) {
+
+							command = sc.nextLine();
+
+							if (command.equals("left")) {
+								System.out.println(deathByWrongDoor);
+								System.exit(0);
+
+							}
+							if (command.equals("right")) {
+								System.out.println(deathByWrongDoor);
+								System.exit(0);
+
+							}
+							if (command.equals("stay")) {
+								System.out.println(deathByStarve);
+								System.exit(0);
+							}
+						}
+
+					}
+					if (command.equals("stay")) {
+						System.out.println(deathByStarve);
+
+						System.exit(0);
+					}
 				}
+
+				// commandHandled = true;
+			}
+
 			if (command.equals("n")) {
-				System.out.println("You die by starving, because you are coward");
-				//return;
+				System.out.println(deathByStarve);
+				// return;
 				System.exit(0);
 			}
-			
-		}
-					
-		System.out.println("Hello");
-		
-		while (!commandHandled) {
-			command = sc.next();
-			if (command.equals("right")) {
-				
-				System.out.println("bllaaaa");
-				commandHandled = true;
-			}
-			if (command.equals("left")) {
-				System.out.println("blleeee");
-				commandHandled = true;
-			}
-			if (command.equals("stay")) {
-				System.out.println("You die by starving");
-			}
-		}
 
-
+		}
 
 	}
 }
