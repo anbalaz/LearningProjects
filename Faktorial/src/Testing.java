@@ -27,8 +27,10 @@ public class Testing {
 		
 		for(int i=0;i<50;i++) {
 			list.add(0,i);
-						
+			System.out.println("You added to index 0 value: " + i);
+			System.out.println("You are getting the value at: " + i);
 			System.out.println(list.get(i));
+			System.out.println("---------------");
 			}
 		
 	}
