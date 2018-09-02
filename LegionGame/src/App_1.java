@@ -25,6 +25,17 @@ public class App_1 {
 		int attackDamage = 40;
 		int healthPotionAmount = 30;
 		int healthpotionDropChance = 30;
+		
+//		creasing and decreasing numbers
+		
+		String enemy= enemies[rnd.nextInt(enemies.length)];
+		int enemyHealth= rnd.nextInt(maxEnemyHealth);
+		int enemyAttack= rnd.nextInt(attackDamage);
+		int attack= rnd.nextInt(attackDamage);
+		int healthPotion= rnd.nextInt(healthPotionAmount);
+		int healthpotionDrop= rnd.nextInt(healthpotionDropChance);
+				
+//		Main game, beginning
 
 		System.out.println(
 				"You're in the town that is burning, enemy almost surrounded it, you can either \n1)run away or \n2)stay. \nWhat do you do?");
@@ -37,6 +48,7 @@ public class App_1 {
 				commandHandled = false;
 			}
 			if (command.equals("2")) {
+				
 				System.out.println("You're brave but also dead.");
 				System.exit(0);
 
