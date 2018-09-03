@@ -28,8 +28,8 @@ public class App_1 {
 		
 //		creasing and decreasing numbers
 		
-		String enemy= enemies[rnd.nextInt(enemies.length)];
-		int enemyHealth= rnd.nextInt(maxEnemyHealth);
+//		String enemy= enemies[rnd.nextInt(enemies.length)];
+//		int enemyHealth= rnd.nextInt(maxEnemyHealth);
 		int enemyAttack= rnd.nextInt(attackDamage);
 		int attack= rnd.nextInt(attackDamage);
 		int healthPotion= rnd.nextInt(healthPotionAmount);
@@ -38,18 +38,33 @@ public class App_1 {
 //		Main game, beginning
 
 		System.out.println(
-				"You're in the town that is burning, enemy almost surrounded it, you can either \n1)run away or \n2)stay. \nWhat do you do?");
+				"You're in the town that is burning, enemy almost surrounded it, you can either \n1) run away \n2) stay \nWhat do you do?");
 
 		while (commandHandled) {
 
 			command = in.nextLine();
 			if (command.equals("1")) {
-				System.out.println("You coward you run away and probably save your live from certain death!");
+				System.out.println("You coward you run away and probably saved your live from certain death!");
 				commandHandled = false;
 			}
 			if (command.equals("2")) {
 				
-				System.out.println("You're brave but also dead.");
+				System.out.println("You decided to stay in the hell now you have to fight for your life!.");
+				{
+					while (health>0) {
+						
+						String enemy= enemies[rnd.nextInt(enemies.length)];
+						int enemyHealth= rnd.nextInt(maxEnemyHealth);
+						
+						System.out.println("The "+enemy+" with health "+ enemyHealth+" is attacking, you should do something before it is too late");
+						{
+							
+							System.out.println("You' re health is "+ health + "what do you do \n1) surrender \n2) fight");
+						}
+//						int enemyAttack= rnd.nextInt(attackDamage);
+					}
+				}
+				
 				System.exit(0);
 
 			}
