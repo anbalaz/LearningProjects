@@ -1,28 +1,25 @@
-import java.util.Random;
 
 public class Player extends GameCharacter {
 
-	Random rnd = RandomNumber.getRnd();
+//	int healthPotionAmount = 30;
+//	int healthpotionDropChance = 30;
+//	int healthPotion = rnd.nextInt(healthPotionAmount);
+//	int healthpotionDrop = rnd.nextInt(healthpotionDropChance);
+//	int attack = rnd.nextInt(maxPlayerAttackDamage);
 	
-	int playerHealth = 100;
-	int maxPlayerAttackDamage = 40;
+//	public Player()
+//	{
+//		super.setMaxHealth(100);
+//		super.setMaxAttack(50);
+//		super.setHealth(getMaxHealth());
+//		super.setAttack(rnd.nextInt(getMaxAttack()));
+//	}
 	
-	int healthPotionAmount = 30;
-	int healthpotionDropChance = 30;
-	int healthPotion = rnd.nextInt(healthPotionAmount);
-	int healthpotionDrop = rnd.nextInt(healthpotionDropChance);
-	int attack = rnd.nextInt(maxPlayerAttackDamage);
-	
-	public Player()
-	{
-		super.setHealth(playerHealth);
-		super.setAttackDamage(rnd.nextInt(maxPlayerAttackDamage));
-	}
 
-	public void DoSomething()
-	{
-		int currentHealth = super.health;
-		
-	}
+//	public void DoSomething()
+//	{
+//		int currentHealth = super.health;
+//		
+//	}
 	
 }

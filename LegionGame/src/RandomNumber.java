@@ -11,5 +11,13 @@ public class RandomNumber {
         return rnd;
     }
 
+    public static int getRandomMaxAttack(int maxAttack)
+    {
+    	return rnd.nextInt(maxAttack);
+    }
+    public static int getRandomMaxHealth(int maxHealth) {
+    	return rnd.nextInt(maxHealth);
+    }
+    
     
 }
