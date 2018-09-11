@@ -16,7 +16,7 @@ public class RandomNumber {
     	return rnd.nextInt(maxAttack);
     }
     public static int getRandomMaxHealth(int maxHealth) {
-    	return rnd.nextInt(maxHealth);
+    	return rnd.nextInt(maxHealth)+1;
     }
     
     

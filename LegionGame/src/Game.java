@@ -21,7 +21,7 @@ public class Game {
 				System.out.println("You decided to stay in the hell now you have to fight for your life!.");
 				while (player.getHealth() > 1) {
 					Enemy enemy = new Enemy(70, 70);
-//					enemy.enemyName;
+					player.getAttack();
 					System.out.println("The " + enemy.enemyName + " with health " + enemy.getHealth()
 							+ " is attacking, you should do something before it is too late");
 
@@ -35,40 +35,27 @@ public class Game {
 					if (commandString.equals("2")) {
 
 						while (player.IsAlive() && enemy.IsAlive()) {
-							player.setHealth(player.getHealth() - enemy.getAttack());
-							enemy.setHealth(enemy.getHealth() - player.getAttack());
-							// health = health - enemyAttack;
-							// enemyHealth = enemyHealth - attack;
-
-							if (player.getHealth() < 0) {
-								player.setHealth(0);
-								System.out.println("You're life is " + player.getHealth() + " enemy health is "
-										+ enemy.getHealth());
-							}else if (enemy.getHealth() < 0) {
-								enemy.setHealth(0);
-								System.out.println("You're life is " + player.getHealth() + " enemy health is "
-										+ enemy.getHealth());
-							} else {
-								System.out.println("You're life is " + player.getHealth() + " enemy health is "
-										+ enemy.getHealth());
-							}
-
-							// System.out.println("1)Strike again\n2)Run ");
-							// command = sc.nextLine();
-							// if (command.equals("1"))
-							// if (command.equals("2")) {
-							// break;
+							player.fight(enemy);
+				
+							System.out.println("You're life is " + player.getHealth() + " enemy health is " + enemy.getHealth());
 						}
 
-						if (commandString.equals("1")) {
-							commandHandled = false;
-						}
+						// System.out.println("1)Strike again\n2)Run ");
+						// command = sc.nextLine();
+						// if (command.equals("1"))
+						// if (command.equals("2")) {
+						// break;
+					}
+
+					if (commandString.equals("1")) {
+						commandHandled = false;
+					}
 
 					}
 
 				}
 			}
 		}
-		sc.close();
+		
 	}
-}
+

@@ -5,18 +5,26 @@ public abstract class GameCharacter {
 	protected int maxAttack;
 	protected int attack;
 	
-	public Boolean IsAlive()
-	{
-		return this.getHealth() > 1;
+	public boolean IsAlive() {
+		return this.getHealth() > 0;
 	}
-	
+
 	public int getHealth() {
-		if(this.health < 0)
-		{
+		if (this.health < 0) {
 			return 0;
 		}
 		return health;
 	}
+	
+	public void fight(int attackStrength) {
+		setHealth(getHealth()-attackStrength);
+	}
+	
+	public void fight(GameCharacter otherCharacter) {
+		this.fight(otherCharacter.getAttack());
+		otherCharacter.fight(this.getAttack());
+	}
+	
 	public void setHealth(int health) {
 		this.health = health;
 	}
