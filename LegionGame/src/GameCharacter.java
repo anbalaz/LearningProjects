@@ -25,6 +25,10 @@ public abstract class GameCharacter {
 		otherCharacter.fight(this.getAttack());
 	}
 	
+	public void setMaxRandomAttack() {
+		this.setAttack(RandomNumber.getRandomMaxHealth(this.getMaxAttack()));
+	}
+	
 	public void setHealth(int health) {
 		this.health = health;
 	}

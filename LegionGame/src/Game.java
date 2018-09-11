@@ -8,7 +8,6 @@ public class Game {
 		boolean commandHandled = true;
 		String commandString;
 		Player player = new Player();
-		
 
 		System.out.println(
 				"You're in the town that is burning, enemy almost surrounded it, you can either \n1) run away \n2) stay \nWhat do you do?");
@@ -21,7 +20,7 @@ public class Game {
 				System.out.println("You decided to stay in the hell now you have to fight for your life!.");
 				while (player.getHealth() > 1) {
 					Enemy enemy = new Enemy(70, 70);
-					player.getAttack();
+					player.setMaxRandomAttack();
 					System.out.println("The " + enemy.enemyName + " with health " + enemy.getHealth()
 							+ " is attacking, you should do something before it is too late");
 
@@ -30,14 +29,15 @@ public class Game {
 					commandString = sc.nextLine();
 					if (commandString.equals("1")) {
 						System.out.println("You're taken as a prisoner, lets hope somebody will pay ransom for you.");
-						System.exit(0);
+						break;
 					}
-					if (commandString.equals("2")) {
+					else if (commandString.equals("2")) {
 
 						while (player.IsAlive() && enemy.IsAlive()) {
 							player.fight(enemy);
-				
-							System.out.println("You're life is " + player.getHealth() + " enemy health is " + enemy.getHealth());
+
+							System.out.println(
+									"You're life is " + player.getHealth() + " enemy health is " + enemy.getHealth());
 						}
 
 						// System.out.println("1)Strike again\n2)Run ");
@@ -47,15 +47,12 @@ public class Game {
 						// break;
 					}
 
-					if (commandString.equals("1")) {
-						commandHandled = false;
-					}
-
-					}
-
 				}
+				break;
+
 			}
 		}
-		
 	}
+
+}
 
