@@ -16,17 +16,27 @@ public abstract class GameCharacter {
 		return health;
 	}
 	
-	public void fight(int attackStrength) {
-		setHealth(getHealth()-attackStrength);
+	private void setMaxRandomAttack(int maxAttackStrength) {
+		this.setAttack(RandomNumber.getRandomMaxAttack(maxAttackStrength));
+	}
+	
+	public void setMaxRandomAttack(GameCharacter otherCharacter) {
+		this.setMaxRandomAttack(this.getMaxAttack());
+		otherCharacter.setMaxRandomAttack(otherCharacter.getMaxAttack());
+	}
+	
+	private void healthCounting(int attackStrength) {
+		this.setHealth(this.getHealth()-attackStrength);
+	}
+	
+	public void healthCounting(GameCharacter otherCharacter) {
+		this.healthCounting(otherCharacter.getAttack());
+		otherCharacter.healthCounting(this.getAttack());
 	}
 	
 	public void fight(GameCharacter otherCharacter) {
-		this.fight(otherCharacter.getAttack());
-		otherCharacter.fight(this.getAttack());
-	}
-	
-	public void setMaxRandomAttack() {
-		this.setAttack(RandomNumber.getRandomMaxHealth(this.getMaxAttack()));
+		this.healthCounting(otherCharacter);
+		this.setMaxRandomAttack(otherCharacter);
 	}
 	
 	public void setHealth(int health) {

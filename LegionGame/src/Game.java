@@ -19,11 +19,9 @@ public class Game {
 			} else if (commandString.equals("2")) {
 				System.out.println("You decided to stay in the hell now you have to fight for your life!.");
 				while (player.getHealth() > 1) {
-					Enemy enemy = new Enemy(70, 70);
-					player.setMaxRandomAttack();
+					Enemy enemy = new Enemy(70,70);
 					System.out.println("The " + enemy.enemyName + " with health " + enemy.getHealth()
 							+ " is attacking, you should do something before it is too late");
-
 					System.out.println(
 							"You' re health is " + player.getHealth() + ". What do you do \n1) surrender \n2) fight");
 					commandString = sc.nextLine();
