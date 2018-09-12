@@ -1,12 +1,32 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class Environment {
 		
-	Random rnd = new Random();
-	String command;
-	boolean commandHandled = true;
-	Scanner in = new Scanner(System.in);
+	private String commandString;
+	private boolean commandHandled = true;
+	private Scanner scanner = new Scanner(System.in);
+	
+	public void insertedText() {
+		this.setCommandString(this.scanner.nextLine());
+		}
+	public String getCommandString() {
+		return commandString;
+	}
+	public void setCommandString(String commandString) {
+		this.commandString = commandString;
+	}
+	public boolean isCommandHandled() {
+		return commandHandled;
+	}
+	public void setCommandHandled(boolean commandHandled) {
+		this.commandHandled = commandHandled;
+	}
+	public Scanner getIn() {
+		return scanner;
+	}
+	public void setIn(Scanner in) {
+		this.scanner = in;
+	}
 	
 	
 

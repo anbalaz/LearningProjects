@@ -1,9 +1,9 @@
 public abstract class GameCharacter {
 	
-	protected int health;
-	protected int maxHealth;
-	protected int maxAttack;
-	protected int attack;
+	private int health;
+	private int maxHealth;
+	private int maxAttack;
+	private int attack;
 	
 	public boolean IsAlive() {
 		return this.getHealth() > 0;
@@ -20,7 +20,7 @@ public abstract class GameCharacter {
 		this.setAttack(RandomNumber.getRandomMaxAttack(maxAttackStrength));
 	}
 	
-	public void setMaxRandomAttack(GameCharacter otherCharacter) {
+	private void setMaxRandomAttack(GameCharacter otherCharacter) {
 		this.setMaxRandomAttack(this.getMaxAttack());
 		otherCharacter.setMaxRandomAttack(otherCharacter.getMaxAttack());
 	}
@@ -29,7 +29,7 @@ public abstract class GameCharacter {
 		this.setHealth(this.getHealth()-attackStrength);
 	}
 	
-	public void healthCounting(GameCharacter otherCharacter) {
+	private void healthCounting(GameCharacter otherCharacter) {
 		this.healthCounting(otherCharacter.getAttack());
 		otherCharacter.healthCounting(this.getAttack());
 	}
