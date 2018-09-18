@@ -5,6 +5,12 @@ public abstract class GameCharacter {
 	private int maxAttack;
 	private int attack;
 	
+	protected abstract String getName();
+
+	public String healthToString(){
+		return this.getName() + " health is " + this.getHealth();
+	}
+	
 	public boolean IsAlive() {
 		return this.getHealth() > 0;
 	}
@@ -38,6 +44,9 @@ public abstract class GameCharacter {
 		this.healthCounting(otherCharacter);
 		this.setMaxRandomAttack(otherCharacter);
 	}
+	
+	
+	
 	
 	public void setHealth(int health) {
 		this.health = health;

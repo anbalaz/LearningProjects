@@ -9,10 +9,18 @@ public class Environment {
 	public void insertedText() {
 		this.setCommandString(this.scanner.nextLine());
 		}
-	public String getCommandString() {
+	
+	public boolean equals(String answer) {
+		if (this.getCommandString().equals(answer)) {
+			return true;
+		}
+		return false;
+	}
+	
+	private String getCommandString() {
 		return commandString;
 	}
-	public void setCommandString(String commandString) {
+	private void setCommandString(String commandString) {
 		this.commandString = commandString;
 	}
 	public boolean isCommandHandled() {

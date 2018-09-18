@@ -21,5 +21,9 @@ public class Player extends GameCharacter {
 //		int currentHealth = super.health;
 //		
 //	}
+	public String healthToString(){
+		return "Your health is " + this.getHealth();
+	}
+	
 	
 }

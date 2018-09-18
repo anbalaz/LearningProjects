@@ -18,6 +18,12 @@ public class Enemy extends GameCharacter {
 		super(maxHealth, maxAttack);
 	}
 	
+
+	@Override
+	protected String getName() {
+		return getEnemyName();
+	}
+	
 //	public Enemy(int maxHealth, int maxAttack) {
 //		super(RandomNumber.getRandomMaxHealth(maxHealth), RandomNumber.getRandomMaxAttack(maxAttack));
 //	}
