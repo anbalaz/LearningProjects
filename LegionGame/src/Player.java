@@ -1,18 +1,18 @@
 
-public class Player extends GameCharacter {
+public final class Player extends GameCharacter {
 
-    private String playerName;
+    private static String playerName;
 
-    private String getPlayerName() {
+    private  static String getPlayerName() {
         return playerName;
     }
 
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public static void setPlayerName(String name) {
+        playerName = name;
     }
 
     @Override
-    protected String getName() {
+    protected  String getName() {
         return getPlayerName();
     }
     //	int healthPotionAmount = 30;
