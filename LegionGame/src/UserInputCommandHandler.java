@@ -1,21 +1,18 @@
 import java.util.Scanner;
 
-public class Environment {
+//TODO: Class by mala citat a prezentovat vstupy od uzivatela
+public class UserInputCommandHandler {
 
     private String commandString;
     private boolean commandHandled = true;
     private Scanner scanner = new Scanner(System.in);
 
-    public void insertedText() {
+    public void readCommandString() {
         this.setCommandString(this.scanner.nextLine());
     }
 
     public boolean equals(String answer) {
-        if (this.getCommandString().equals(answer)) {
-            return true;
-        }
-        return false;
-    }
+        return this.getCommandString().equals(answer); }
 
     private String getCommandString() {
         return commandString;
