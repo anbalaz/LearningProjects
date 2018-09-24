@@ -14,7 +14,6 @@ public final class Text {
     }
 
     public static void initializingGame() {
-        stayAndFight();
         System.out.println("You're in the town that is burning, enemy almost surrounded it, you can either \n1) run away \n2) stay \nWhat do you do?");
     }
 

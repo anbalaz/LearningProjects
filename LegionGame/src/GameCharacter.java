@@ -11,7 +11,7 @@ public abstract class GameCharacter {
         return this.getName() + " health is " + this.getHealth();
     }
 
-    public boolean IsAlive() {
+    public boolean isAlive() {
         return this.getHealth() > 0;
     }
 

@@ -15,10 +15,17 @@ public final class Player extends GameCharacter {
     protected  String getName() {
         return getPlayerName();
     }
+
+    public Player(){super();}
+
+    public Player(int startHealth, int startAttack)
+    {
+        super(startHealth, startAttack);
+    }
     //	int healthPotionAmount = 30;
-//	int healthpotionDropChance = 30;
+//	int healthPotionDropChance = 30;
 //	int healthPotion = rnd.nextInt(healthPotionAmount);
-//	int healthpotionDrop = rnd.nextInt(healthpotionDropChance);
+//	int healthPotionDrop = rnd.nextInt(healthPotionDropChance);
 //	int attack = rnd.nextInt(maxPlayerAttackDamage);
 
 //	public Player()
