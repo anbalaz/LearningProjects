@@ -38,11 +38,29 @@ public class GameRoom {
     {
         return this.northExit;
     }
+    public GameRoom southRoom()
+    {
+        return this.southExit;
+    }
+    public GameRoom eastRoom()
+    {
+        return this.eastExit;
+    }
+    public GameRoom westRoom()
+    {
+        return this.westExit;
+    }
+
+//    @Override
+//    public String toString()
+//    {
+//        return this.name;
+//    }
 
 
     public String roomDescriptionToString()
     {
-        return this.name + "\n" + this.exitsToString();
+        return "You're in the "+this.name + "\n" + this.exitsToString();
     }
 
     public String exitsToString()
@@ -58,6 +76,14 @@ public class GameRoom {
         {
             retString = retString + " south";
             //" north south"
+        }
+        if(this.eastExit != null)
+        {
+            retString = retString + " east";
+        }
+        if(this.westExit != null)
+        {
+            retString = retString + " west";
         }
 
         if(retString.equals(""))
