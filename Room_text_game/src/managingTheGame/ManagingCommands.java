@@ -21,47 +21,31 @@ public class ManagingCommands {
             if (command.equals("go")) {
                 System.out.println("Where you wanna go man?");
                 command = scan.nextLine();
-                switch (command) {
-                    case "north":
-                        if (currentRoom.northExit != null) {
+
+                if (!currentRoom.hasExit(command)) {
+                    System.out.println("There is no door that way");
+                } else {
+                    switch (command) {
+                        case "north":
                             System.out.println("You're going north");
                             currentRoom = currentRoom.northRoom();
                             break;
-                        } else {
-                            System.out.println("There is no door that way");
-                            break;
-                        }
 
-                    case "south":
-                        if (currentRoom.southExit != null) {
+                        case "south":
                             System.out.println("You're going south");
                             currentRoom = currentRoom.southRoom();
                             break;
-                        } else {
-                            System.out.println("There is no door that way");
-                            break;
-                        }
-                    case "east":
-                        if (currentRoom.eastExit != null) {
+
+                        case "east":
                             System.out.println("You're going east");
                             currentRoom = currentRoom.eastRoom();
                             break;
-                        } else {
-                            System.out.println("There is no door that way");
-                            break;
-                        }
-                    case "west":
-                        if (currentRoom.westExit != null) {
+
+                        case "west":
                             System.out.println("You're going west");
                             currentRoom = currentRoom.westRoom();
                             break;
-                        } else {
-                            System.out.println("There is no door that way");
-                            break;
-                        }
-                    default:
-                        System.out.println("There is no door that way");
-                        break;
+                    }
                 }
             } else if (command.equals("description")) {
                 System.out.println(currentRoom.roomDescriptionToString());
