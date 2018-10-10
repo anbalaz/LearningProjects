@@ -1,5 +1,7 @@
 package managingTheGame;
 
+import characters.Player;
+import items.GameItem;
 import items.GameRoom;
 
 import java.util.Scanner;
@@ -11,7 +13,7 @@ public class ManagingCommands {
     private static String command;
 
 
-    public static GameRoom commandHandling(GameRoom currentRoom) {
+    public static GameRoom commandHandling(GameRoom currentRoom, Player player) {
 
         do {
             System.out.println(currentRoom.roomDescriptionToString());
@@ -51,6 +53,16 @@ public class ManagingCommands {
                 System.out.println(currentRoom.roomDescriptionToString());
             } else if (command.equals("exit")) {
                 break;
+            } else if (command.equals("take")) {
+                System.out.println("What do you want to take?");
+                command = scan.nextLine();
+                if (currentRoom.isThereAnItem(command)) {
+                    GameItem itemToAdd = currentRoom.getItemByName(command);
+                    player.addItemToItinerary(itemToAdd);
+                    currentRoom.removeItem(itemToAdd);
+                    break;
+                }
+
             } else {
                 System.out.println("I don't understand what you wanna do !");
             }

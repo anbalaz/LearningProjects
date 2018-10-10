@@ -21,15 +21,6 @@ public class GameRoom {
         this(name, new ArrayList<>());
     }
 
-    public boolean CanGo(String direction) {
-        switch (direction) {
-            case "north":
-                return (this.northExit != null);
-        }
-
-        return false;
-    }
-
     public void setRooms(GameRoom north, GameRoom south, GameRoom east, GameRoom west) {
         northExit = north;
         southExit = south;
@@ -89,12 +80,9 @@ public class GameRoom {
     }
 
 
-
-
     public String roomDescriptionToString() {
-        String retString = String.format("You're in the %1s, %s",this.name, this.exitsToString());
-        if(!this.gameItems.isEmpty())
-        {
+        String retString = String.format("You're in the %1s, %s", this.name, this.exitsToString());
+        if (!this.gameItems.isEmpty()) {
             retString = String.format("%s, %s", retString, this.gameItems);
         }
 
@@ -128,15 +116,32 @@ public class GameRoom {
         return retString;
     }
 
-    public void giveMeItem(String itemName){
-        for (GameItem item: gameItems){
-            if (item.itemName.equals(itemName)){
-                System.out.println("I have in my inventory: "+item.itemName+" here you go");
-                gameItems.remove(item);
-                System.out.println(this.roomDescriptionToString());
-                return;}
+    public boolean isThereAnItem(String itemName) {
+        boolean thereIsItem = false;
+        for (GameItem item : gameItems) {
+            if (item.itemName.equals(itemName)) {
+                System.out.println("I have in my inventory: " + item.itemName + " here you go");
+                return thereIsItem = true;
+            }
         }
         System.out.println("Shit, we don't have it");
+        return thereIsItem;
+    }
+
+    public void removeItem(GameItem itemToRemove) {
+        gameItems.remove(itemToRemove);
+        System.out.println(itemToRemove + " is removed");
+
+    }
+
+    public GameItem getItemByName(String itemName) {
+        for (GameItem item : gameItems) {
+            if (item.itemName.equals(itemName)) {
+                return item;
+            }
+        }
+
+        return null;
     }
 
 }

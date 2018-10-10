@@ -1,17 +1,17 @@
+import characters.Player;
 import items.GameItem;
 import items.GameRoom;
 import items.ItemsWithText;
 import items.Potion;
 import managingTheGame.ManagingCommands;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class TheGame {
 
     public void runTheGame() {
+        Player player= new Player(new ArrayList<>());
 
         System.out.println("The game is running");
 
@@ -19,8 +19,7 @@ public class TheGame {
 
         GameRoom currentRoom = this.createMap();
         System.out.println(currentRoom.roomDescriptionToString());
-        currentRoom.giveMeItem("note");
-        currentRoom = ManagingCommands.commandHandling(currentRoom);
+        currentRoom = ManagingCommands.commandHandling(currentRoom, player);
     }
 
 //    private void runTheGameMasso()
