@@ -1,5 +1,7 @@
 package items;
 
+import java.util.ArrayList;
+
 public class GameRoom {
 
     public String name;
@@ -7,18 +9,21 @@ public class GameRoom {
     public GameRoom southExit;
     public GameRoom eastExit;
     public GameRoom westExit;
+    public ArrayList<GameItem> gameItems;
 
 //    boolean openable;
 
-    public GameRoom(String name)
-    {
+    public GameRoom(String name, ArrayList<GameItem> gameItems) {
+        this.name = name;
+        this.gameItems = gameItems;
+    }
+
+    public GameRoom(String name) {
         this.name = name;
     }
 
-    public boolean CanGo(String direction)
-    {
-        switch (direction)
-        {
+    public boolean CanGo(String direction) {
+        switch (direction) {
             case "north":
                 return (this.northExit != null);
         }
@@ -26,8 +31,7 @@ public class GameRoom {
         return false;
     }
 
-    public void setRooms(GameRoom north, GameRoom south, GameRoom east, GameRoom west)
-    {
+    public void setRooms(GameRoom north, GameRoom south, GameRoom east, GameRoom west) {
         northExit = north;
         southExit = south;
         eastExit = east;
@@ -84,42 +88,43 @@ public class GameRoom {
                 return false;
         }
     }
-//    @Override
-//    public String toString()
-//    {
-//        return this.name;
-//    }
 
 
-        public String roomDescriptionToString () {
-            return "You're in the " + this.name + "\n" + this.exitsToString();
+    public String roomDescriptionToString() {
+        String retString = String.format("You're in the %1s, %s",this.name, this.exitsToString());
+        if(!this.gameItems.isEmpty())
+        {
+            retString = String.format("%s, %s", retString, this.gameItems);
         }
 
-        public String exitsToString () {
-            String stringCanGo = "You can go";
-            String retString = "";
-            if (this.northExit != null) {
-                retString = retString + " north";
-                //" north"
-            }
-            if (this.southExit != null) {
-                retString = retString + " south";
-                //" north south"
-            }
-            if (this.eastExit != null) {
-                retString = retString + " east";
-            }
-            if (this.westExit != null) {
-                retString = retString + " west";
-            }
-
-            if (retString.equals("")) {
-                retString = "You can go nowhere";
-            } else {
-                retString = stringCanGo + retString;
-            }
-
-            return retString;
-        }
-
+        return retString;
     }
+
+    public String exitsToString() {
+        String stringCanGo = "You can go";
+        String retString = "";
+        if (this.northExit != null) {
+            retString = retString + " north";
+            //" north"
+        }
+        if (this.southExit != null) {
+            retString = retString + " south";
+            //" north south"
+        }
+        if (this.eastExit != null) {
+            retString = retString + " east";
+        }
+        if (this.westExit != null) {
+            retString = retString + " west";
+        }
+
+        if (retString.equals("")) {
+            retString = "You can go nowhere";
+        } else {
+            retString = stringCanGo + retString;
+        }
+
+        return retString;
+    }
+
+}

@@ -1,7 +1,11 @@
 import items.GameItem;
 import items.GameRoom;
+import items.ItemsWithText;
+import items.Potion;
 import managingTheGame.ManagingCommands;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -9,10 +13,9 @@ public class TheGame {
 
     public void runTheGame() {
 
-//        this.runTheGameMasso();
         System.out.println("The game is running");
-//        GameItem object= new GameItem("hovno",true,true, true);
-//        System.out.println(object.toString());
+
+
 
         GameRoom currentRoom = this.createMap();
         currentRoom = ManagingCommands.commandHandling(currentRoom);
@@ -84,7 +87,7 @@ public class TheGame {
 //    }
 
     private GameRoom createMap() {
-        GameRoom room1 = new GameRoom("Hall");
+        GameRoom room1 = new GameRoom("Hall", createItems());
         GameRoom room2 = new GameRoom("Living room");
         GameRoom room3 = new GameRoom("Garage");
 
@@ -97,7 +100,14 @@ public class TheGame {
         return room1;
     }
 
+    private ArrayList<GameItem> createItems(){
+        ArrayList<GameItem> gameItems= new ArrayList<>();
+        gameItems.add(new ItemsWithText("note", true, "very long text"));
+        gameItems.add(new Potion("healthPotion", true, 25));
+        return gameItems;
     }
+
+}
 
 
 

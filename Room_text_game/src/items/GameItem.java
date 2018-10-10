@@ -1,26 +1,17 @@
 package items;
 
 public class GameItem {
-    private String itemName;
-    private boolean pickUp;
-    private boolean breakSmth;
-    private boolean breakable;
+    protected String itemName;
+    protected boolean pickable;
 
 
-    public GameItem(String itemName, boolean pickUp, boolean breakSmth, boolean breakable){
-        this.itemName =itemName;
-        this.pickUp=pickUp;
-        this.breakSmth=breakSmth;
-        this.breakable= breakable;
+    public GameItem(String itemName, boolean pickable) {
+        this.itemName = itemName;
+        this.pickable = pickable;
     }
 
     @Override
     public String toString() {
-        return "GameItem{" +
-                "itemName='" + itemName + '\'' +
-                ", pickUp=" + pickUp +
-                ", breakSmth=" + breakSmth +
-                ", breakable=" + breakable +
-                '}';
+        return String.format("%1s, pickable: %2s", itemName, pickable);
     }
 }
