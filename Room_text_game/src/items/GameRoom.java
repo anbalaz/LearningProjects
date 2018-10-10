@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 public class GameRoom {
 
-    public String name;
-    public GameRoom northExit;
-    public GameRoom southExit;
-    public GameRoom eastExit;
-    public GameRoom westExit;
-    public ArrayList<GameItem> gameItems;
+    private String name;
+    private GameRoom northExit;
+    private GameRoom southExit;
+    private GameRoom eastExit;
+    private GameRoom westExit;
+    private ArrayList<GameItem> gameItems;
 
-//    boolean openable;
 
     public GameRoom(String name, ArrayList<GameItem> gameItems) {
         this.name = name;
@@ -19,7 +18,7 @@ public class GameRoom {
     }
 
     public GameRoom(String name) {
-        this.name = name;
+        this(name, new ArrayList<>());
     }
 
     public boolean CanGo(String direction) {
@@ -90,6 +89,8 @@ public class GameRoom {
     }
 
 
+
+
     public String roomDescriptionToString() {
         String retString = String.format("You're in the %1s, %s",this.name, this.exitsToString());
         if(!this.gameItems.isEmpty())
@@ -125,6 +126,17 @@ public class GameRoom {
         }
 
         return retString;
+    }
+
+    public void giveMeItem(String itemName){
+        for (GameItem item: gameItems){
+            if (item.itemName.equals(itemName)){
+                System.out.println("I have in my inventory: "+item.itemName+" here you go");
+                gameItems.remove(item);
+                System.out.println(this.roomDescriptionToString());
+                return;}
+        }
+        System.out.println("Shit, we don't have it");
     }
 
 }

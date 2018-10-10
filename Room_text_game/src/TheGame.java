@@ -18,6 +18,8 @@ public class TheGame {
 
 
         GameRoom currentRoom = this.createMap();
+        System.out.println(currentRoom.roomDescriptionToString());
+        currentRoom.giveMeItem("note");
         currentRoom = ManagingCommands.commandHandling(currentRoom);
     }
 
