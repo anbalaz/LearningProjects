@@ -1,19 +1,24 @@
 package characters;
 
 import items.GameItem;
+import items.ItemStorage;
 
 import java.util.ArrayList;
 
 public class Player extends GameCharacter {
-    private ArrayList<GameItem> itinerary;
+    private ItemStorage itinerary;
 
-    public Player(ArrayList<GameItem> itinerary) {
+
+    public ItemStorage getItinerary() {
+        return itinerary;
+    }
+
+    public Player(ItemStorage itinerary) {
         this.itinerary = itinerary;
     }
 
-    public void addItemToItinerary(GameItem item) {
-        itinerary.add(item);
-
+    public Player() {
+        this(new ItemStorage());
     }
 
 

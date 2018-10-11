@@ -1,21 +1,13 @@
 import characters.Player;
-import items.GameItem;
-import items.GameRoom;
-import items.ItemsWithText;
-import items.Potion;
+import items.*;
 import managingTheGame.ManagingCommands;
-
-import java.util.ArrayList;
-
 
 public class TheGame {
 
     public void runTheGame() {
-        Player player= new Player(new ArrayList<>());
+        Player player= new Player();
 
         System.out.println("The game is running");
-
-
 
         GameRoom currentRoom = this.createMap();
         System.out.println(currentRoom.roomDescriptionToString());
@@ -101,10 +93,10 @@ public class TheGame {
         return room1;
     }
 
-    private ArrayList<GameItem> createItems(){
-        ArrayList<GameItem> gameItems= new ArrayList<>();
-        gameItems.add(new ItemsWithText("note", true, "very long text"));
-        gameItems.add(new Potion("healthPotion", true, 25));
+    private ItemStorage createItems(){
+        ItemStorage gameItems= new ItemStorage();
+        gameItems.addItem(new ItemsWithText("note", true, "very long text"));
+        gameItems.addItem(new Potion("healthPotion", true, 25));
         return gameItems;
     }
 

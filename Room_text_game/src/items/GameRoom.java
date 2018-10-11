@@ -9,16 +9,19 @@ public class GameRoom {
     private GameRoom southExit;
     private GameRoom eastExit;
     private GameRoom westExit;
-    private ArrayList<GameItem> gameItems;
+    private ItemStorage gameItems;
 
+    public ItemStorage getGameItems() {
+        return gameItems;
+    }
 
-    public GameRoom(String name, ArrayList<GameItem> gameItems) {
+    public GameRoom(String name, ItemStorage gameItems) {
         this.name = name;
         this.gameItems = gameItems;
     }
 
     public GameRoom(String name) {
-        this(name, new ArrayList<>());
+        this(name, new ItemStorage()) ;
     }
 
     public void setRooms(GameRoom north, GameRoom south, GameRoom east, GameRoom west) {
@@ -89,6 +92,8 @@ public class GameRoom {
         return retString;
     }
 
+
+
     public String exitsToString() {
         String stringCanGo = "You can go";
         String retString = "";
@@ -116,32 +121,5 @@ public class GameRoom {
         return retString;
     }
 
-    public boolean isThereAnItem(String itemName) {
-        boolean thereIsItem = false;
-        for (GameItem item : gameItems) {
-            if (item.itemName.equals(itemName)) {
-                System.out.println("I have in my inventory: " + item.itemName + " here you go");
-                return thereIsItem = true;
-            }
-        }
-        System.out.println("Shit, we don't have it");
-        return thereIsItem;
-    }
-
-    public void removeItem(GameItem itemToRemove) {
-        gameItems.remove(itemToRemove);
-        System.out.println(itemToRemove + " is removed");
-
-    }
-
-    public GameItem getItemByName(String itemName) {
-        for (GameItem item : gameItems) {
-            if (item.itemName.equals(itemName)) {
-                return item;
-            }
-        }
-
-        return null;
-    }
 
 }

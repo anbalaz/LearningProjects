@@ -3,6 +3,7 @@ package managingTheGame;
 import characters.Player;
 import items.GameItem;
 import items.GameRoom;
+import items.ItemStorage;
 
 import java.util.Scanner;
 
@@ -11,7 +12,6 @@ public class ManagingCommands {
     private static boolean stillRun = false;
     private static Scanner scan = new Scanner(System.in);
     private static String command;
-
 
     public static GameRoom commandHandling(GameRoom currentRoom, Player player) {
 
@@ -56,12 +56,12 @@ public class ManagingCommands {
             } else if (command.equals("take")) {
                 System.out.println("What do you want to take?");
                 command = scan.nextLine();
-                if (currentRoom.isThereAnItem(command)) {
-                    GameItem itemToAdd = currentRoom.getItemByName(command);
-                    player.addItemToItinerary(itemToAdd);
-                    currentRoom.removeItem(itemToAdd);
-                    break;
-                }
+                switchItemBetweenStorages(currentRoom.getGameItems(),player.getItinerary(),command);
+
+            } else if (command.equals("drop")) {
+                System.out.println("What do you want to drop?");
+                command = scan.nextLine();
+                switchItemBetweenStorages(player.getItinerary(),currentRoom.getGameItems(),command);
 
             } else {
                 System.out.println("I don't understand what you wanna do !");
@@ -71,7 +71,14 @@ public class ManagingCommands {
         while (!stillRun);
         return currentRoom;
     }
+    public static void switchItemBetweenStorages(ItemStorage sourceStorage,ItemStorage targetStorage, String itemName){
+        if (sourceStorage.isThereAnItem(itemName)) {
+            GameItem itemToBeMoved = sourceStorage.getItemByName(itemName);
+            targetStorage.addItemToItinerary(itemToBeMoved);
+            sourceStorage.removeItem(itemToBeMoved);
+        }
 
+    }
     public String commandReader(Scanner in) {
         return in.nextLine();
     }
