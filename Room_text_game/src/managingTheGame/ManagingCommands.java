@@ -74,7 +74,7 @@ public class ManagingCommands {
     public static void switchItemBetweenStorages(ItemStorage sourceStorage,ItemStorage targetStorage, String itemName){
         if (sourceStorage.isThereAnItem(itemName)) {
             GameItem itemToBeMoved = sourceStorage.getItemByName(itemName);
-            targetStorage.addItemToItinerary(itemToBeMoved);
+            targetStorage.addItemToStorage(itemToBeMoved);
             sourceStorage.removeItem(itemToBeMoved);
         }
 

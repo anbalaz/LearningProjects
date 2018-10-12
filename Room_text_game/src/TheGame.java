@@ -10,7 +10,6 @@ public class TheGame {
         System.out.println("The game is running");
 
         GameRoom currentRoom = this.createMap();
-        System.out.println(currentRoom.roomDescriptionToString());
         currentRoom = ManagingCommands.commandHandling(currentRoom, player);
     }
 
@@ -95,8 +94,8 @@ public class TheGame {
 
     private ItemStorage createItems(){
         ItemStorage gameItems= new ItemStorage();
-        gameItems.addItem(new ItemsWithText("note", true, "very long text"));
-        gameItems.addItem(new Potion("healthPotion", true, 25));
+        gameItems.addItemToStorage(new ItemsWithText("note", true, "very long text"));
+        gameItems.addItemToStorage(new Potion("healthPotion", true, 25));
         return gameItems;
     }
 

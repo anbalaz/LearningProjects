@@ -1,7 +1,5 @@
 package items;
 
-import java.util.ArrayList;
-
 public class GameRoom {
 
     private String name;
@@ -21,7 +19,7 @@ public class GameRoom {
     }
 
     public GameRoom(String name) {
-        this(name, new ItemStorage()) ;
+        this(name, new ItemStorage());
     }
 
     public void setRooms(GameRoom north, GameRoom south, GameRoom east, GameRoom west) {
@@ -82,7 +80,6 @@ public class GameRoom {
         }
     }
 
-
     public String roomDescriptionToString() {
         String retString = String.format("You're in the %1s, %s", this.name, this.exitsToString());
         if (!this.gameItems.isEmpty()) {
@@ -91,8 +88,6 @@ public class GameRoom {
 
         return retString;
     }
-
-
 
     public String exitsToString() {
         String stringCanGo = "You can go";

@@ -13,6 +13,11 @@ public class ItemStorage<Masso> {
         this( new ArrayList<>() );
     }
 
+    @Override
+    public String toString() {
+        return "There are these items :" + storage ;
+    }
+
     public boolean isThereAnItem(String itemName) {
         boolean isThereAnItem = false;
         for (GameItem item : storage) {
@@ -41,7 +46,7 @@ public class ItemStorage<Masso> {
         return null;
     }
 
-    public void addItemToItinerary(GameItem item) {
+    public void addItemToStorage(GameItem item) {
         storage.add(item);
     }
 
@@ -49,7 +54,5 @@ public class ItemStorage<Masso> {
         return storage.isEmpty();
     }
 
-    public GameItem addItem(GameItem item){
-        return item;
-    }
+
 }
