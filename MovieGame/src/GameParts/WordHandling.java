@@ -21,23 +21,27 @@ public class WordHandling {
         }
     }
 
-    protected void printEncryptedWord() {
+    protected String printEncryptedWord() {
+        String encryptedName= "";
         for (int i = 0; i < encryptedNameArray.length; i++) {
-            System.out.print(encryptedNameArray[i] + " ");
+            encryptedName+=encryptedNameArray[i] +  " ";
         }
+        return encryptedName;
     }
 
     protected void printDecriptedWord() {
         System.out.println(filmNameArray);
     }
 
-    protected void guessChar(char guessedChar) {
+    protected boolean guessChar(char guessedChar) {
+        int e=0;
         for (int i = 0; i < filmNameArray.length; i++) {
             if (guessedChar == filmNameArray[i]) {
                 encryptedNameArray[i] = filmNameArray[i];
+                e++;
             }
         }
-
+        return 0==e;
     }
 
     public boolean areTheSameArray() {

@@ -4,23 +4,29 @@ import java.util.Scanner;
 
 public class GameManager {
 
+    private final String outputString = "You are guessing: %s\nYou have guessed(%s) wrong letter:\nGuess a letter: %s";
     private Scanner scanner = new Scanner(System.in);
+    char guessedChar = ' ';
     private String filmName = FileReader.readFile("movies.txt", RandomNumber.generateRandomNumber());
 
 
-
     public void gamePlay() {
+        int countOfWrongAnswers = 0;
+        WordHandling wordHandling = new WordHandling();
+        wordHandling.registerWord(filmName);
+        String answers= "";
 
-        WordHandling wh = new WordHandling();
-        wh.registerWord(filmName);
-        System.out.println("Guess the name of the famous film. Please insert one letter each time and then press Enter.");
 
-        while (!wh.areTheSameArray()) {
-            wh.printEncryptedWord();
-            char guessedChar = scanner.next().charAt(0);
-            wh.guessChar(guessedChar);
+        while (!wordHandling.areTheSameArray()) {
+            System.out.println(String.format(outputString, wordHandling.printEncryptedWord(), countOfWrongAnswers, answers));
+            guessedChar = scanner.next().charAt(0);
+            if (wordHandling.guessChar(guessedChar)) {
+                countOfWrongAnswers++;
+            }
+            answers += " "+ String.valueOf(guessedChar);
+
         }
-        System.out.println("Congratulations, you won, the name of the film was really:"+ filmName);
+        System.out.println("Congratulations, you won, the name of the film was really:" + filmName);
 
     }
 }
