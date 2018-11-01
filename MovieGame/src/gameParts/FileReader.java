@@ -1,4 +1,4 @@
-package GameParts;
+package gameParts;
 
 import java.io.File;
 import java.io.FileNotFoundException;
