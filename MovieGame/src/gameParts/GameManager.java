@@ -6,7 +6,7 @@ public class GameManager {
 
     private final String outputString = "You are guessing: %s\nYou have guessed (%s) wrong letter: %s\nGuess a letter: ";
     private Scanner scanner = new Scanner(System.in);
-    char guessedChar = ' ';
+    private char guessedChar = ' ';
     private String filmName = FileReader.readFile("movies.txt", RandomNumber.generateRandomNumber());
 
 
@@ -15,6 +15,7 @@ public class GameManager {
         WordHandling wordHandling = new WordHandling();
         wordHandling.registerWord(filmName);
         String answers= "";
+        String endGame= "Congratulations, you won, the name of the film was really:" + filmName;
 
 
         while (!wordHandling.areTheSameArray()) {
@@ -24,9 +25,13 @@ public class GameManager {
                 countOfWrongAnswers++;
                 answers += " "+ String.valueOf(guessedChar);
             }
+            if(countOfWrongAnswers>=10){
+                endGame= "You have lost, too many guesses, the name of film was "+ filmName;
+                break;
+            }
 
         }
-        System.out.println("Congratulations, you won, the name of the film was really:" + filmName);
+        System.out.println(endGame);
 
     }
 }
