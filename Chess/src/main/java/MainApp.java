@@ -1,17 +1,16 @@
+import java.awt.*;
+
 public class MainApp {
     public static void main(String[] args) {
 
-        GameBoard board = new GameBoard(8, 8);
+        GameBoard board = new GameBoard(5, 5);
 //        System.out.println(board);
-        int x = 0;
-        int y = 0;
         // vypytaj koordinaty od uzivatela cez konzolu
+        Point point = new Point(2, 2);
 
-        x = 1;
-        y = 2;
 
         // vypis  ze pocitam
-        board.solveProblem(x, y);
+        board.solveProblem(point);
 
 
         // pocet moznost... je 18
@@ -20,6 +19,6 @@ public class MainApp {
         board.gameBoard[2][3] = 5;
 
 
-//        board.writeItDown();
+        board.writeItDown();
     }
 }

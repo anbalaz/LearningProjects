@@ -12,18 +12,18 @@ public class GameBoard {
         this.isUsed = new boolean[x][y];
         for (int i = 0; i < isUsed.length; i++) {
             for (int j = 0; j < isUsed[i].length; j++) {
-                isUsed[i][j] = true;
+                isUsed[i][j] = false;
             }
         }
     }
 
     public void writeItDown() {
-        for (int i = 0; i < gameBoard.length; i++) {
-            for (int j = 0; j < gameBoard[i].length; j++) {
-                System.out.print(gameBoard[i][j] + "\t");
-            }
-            System.out.println();
-        }
+//        for (int i = 0; i < gameBoard.length; i++) {
+//            for (int j = 0; j < gameBoard[i].length; j++) {
+//                System.out.print(gameBoard[i][j] + "\t");
+//            }
+//            System.out.println();
+//        }
         for (int i = 0; i < isUsed.length; i++) {
             for (int j = 0; j < isUsed[i].length; j++) {
                 System.out.print(isUsed[i][j] + "\t");
@@ -32,21 +32,39 @@ public class GameBoard {
         }
     }
 
-    public void solveProblem(int positionX, int positionY) {
+    public void solveProblem(Point sourcePoint) {
 
-        Point sourcePoint = new Point(positionX, positionY);
-        System.out.println(sourcePoint);
+        isUsed[sourcePoint.x][sourcePoint.y] = true;
 
-        ArrayList<Point> possiblePositions = getPossiblePositions(sourcePoint.x, sourcePoint.y);
+        if(isSolved()){
+            System.out.println("forward: " + sourcePoint);
+            writeItDown();
+            System.out.println();
 
-        if (!possiblePositions.isEmpty()) {
-            Point movePoint = possiblePositions.get(0);
-            this.solveProblem(movePoint.x, movePoint.y);
+            System.out.println("dobra praca");
+        }
+
+        ArrayList<Point> possiblePositions = getPossiblePositions(sourcePoint);
+
+        if (possiblePositions.isEmpty()) {
+            isUsed[sourcePoint.x][sourcePoint.y] = false;
+            return;
+        } else {
+            for (int i = 0; i < possiblePositions.size(); i++) {
+                Point movePoint = possiblePositions.get(i);
+                this.solveProblem(movePoint);
+            }
+            isUsed[sourcePoint.x][sourcePoint.y] = false;
+            return;
         }
     }
 
-    private ArrayList<Point> getPossiblePositions(int x, int y) {
+    private ArrayList<Point> getPossiblePositions(Point point) {
+        int x = point.x;
+        int y = point.y;
+
         ArrayList<Point> points = new ArrayList<Point>();
+
         points.add(new Point(x + 2, y + 1));
         points.add(new Point(x + 2, y - 1));
         points.add(new Point(x - 2, y + 1));
@@ -58,20 +76,27 @@ public class GameBoard {
 
         for (int i = 0; i < points.size(); i++) {
             Point currPoint = points.get(i);
-            if (currPoint.x < 0 || currPoint.x > 8 || currPoint.y < 0 || currPoint.y > 8) {
+
+            if (currPoint.x < 0 || currPoint.x > 4 || currPoint.y < 0 || currPoint.y > 4 || isUsed[currPoint.x][currPoint.y]) {
                 points.remove(currPoint);
                 i--;
             }
+//            for (Point pint : points) {
+//                System.out.println(pint);
+//            }
+//            System.out.println();
         }
-
-//        for (Point point:points){
-//            System.out.println(point);
-//        }
-
         return points;
     }
-
-    public void moveOnChessBoard() {
-
+    public boolean isSolved(){
+        for (int i = 0; i < isUsed.length; i++) {
+            for (int j = 0; j < isUsed[i].length; j++) {
+                if (!isUsed[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
+
