@@ -5,9 +5,16 @@ import java.util.Arrays;
 public class GameBoard {
 
     public int[][] gameBoard;
+    public boolean[][] isUsed;
 
     public GameBoard(int x, int y) {
         this.gameBoard = new int[x][y];
+        this.isUsed = new boolean[x][y];
+        for (int i = 0; i < isUsed.length; i++) {
+            for (int j = 0; j < isUsed[i].length; j++) {
+                isUsed[i][j] = true;
+            }
+        }
     }
 
     public void writeItDown() {
@@ -17,23 +24,25 @@ public class GameBoard {
             }
             System.out.println();
         }
-
+        for (int i = 0; i < isUsed.length; i++) {
+            for (int j = 0; j < isUsed[i].length; j++) {
+                System.out.print(isUsed[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 
+    public void solveProblem(int positionX, int positionY) {
 
-    public int solveProblem(int positionX, int positionY) {
+        Point sourcePoint = new Point(positionX, positionY);
+        System.out.println(sourcePoint);
 
-        int i = 0;
-        Point point = new Point( positionX,  positionY);
-        do {
-            point = getPossiblePositions(point.x,point.y).get(0);
-            i++;
-            System.out.println(point);
-        } while (i < 300);
+        ArrayList<Point> possiblePositions = getPossiblePositions(sourcePoint.x, sourcePoint.y);
 
-        this.solveProblem(positionX, positionY);
-
-        return 0;
+        if (!possiblePositions.isEmpty()) {
+            Point movePoint = possiblePositions.get(0);
+            this.solveProblem(movePoint.x, movePoint.y);
+        }
     }
 
     private ArrayList<Point> getPossiblePositions(int x, int y) {
@@ -62,7 +71,7 @@ public class GameBoard {
         return points;
     }
 
-    public void moveOnChessBoard(){
+    public void moveOnChessBoard() {
 
     }
 }
