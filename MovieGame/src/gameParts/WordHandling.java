@@ -22,9 +22,9 @@ public class WordHandling {
     }
 
     protected String printEncryptedWord() {
-        String encryptedName= "";
+        String encryptedName = "";
         for (int i = 0; i < encryptedNameArray.length; i++) {
-            encryptedName+=encryptedNameArray[i] +  " ";
+            encryptedName += encryptedNameArray[i] + " ";
         }
         return encryptedName;
     }
@@ -34,14 +34,14 @@ public class WordHandling {
     }
 
     protected boolean guessChar(char guessedChar) {
-        int e=0;
+        int e = 0;
         for (int i = 0; i < filmNameArray.length; i++) {
             if (guessedChar == filmNameArray[i]) {
                 encryptedNameArray[i] = filmNameArray[i];
                 e++;
             }
         }
-        return 0==e;
+        return 0 == e;
     }
 
     public boolean areTheSameArray() {

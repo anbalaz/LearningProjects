@@ -15,7 +15,7 @@ public class GameManager {
         WordHandling wordHandling = new WordHandling();
         wordHandling.registerWord(filmName);
         String answers= "";
-        String endGame= "Congratulations, you won, the name of the film was really:" + filmName;
+        String endGame= "Congratulations, you won, the name of the film was really: " + filmName;
 
 
         while (!wordHandling.areTheSameArray()) {
@@ -23,7 +23,7 @@ public class GameManager {
             guessedChar = scanner.next().charAt(0);
             if (wordHandling.guessChar(guessedChar)) {
                 countOfWrongAnswers++;
-                answers += " "+ String.valueOf(guessedChar);
+                answers += " "+ guessedChar;
             }
             if(countOfWrongAnswers>=10){
                 endGame= "You have lost, too many guesses, the name of film was "+ filmName;
